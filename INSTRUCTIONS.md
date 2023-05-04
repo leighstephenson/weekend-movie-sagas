@@ -15,21 +15,21 @@ For this weekend challenge you'll be expanding on a movie management application
 
 ## Database Setup
 
-1. Create a database named `saga_movies_weekend`
-2. Run the queries from `database.sql` on the `saga_movies_weekend` database
+✅1. Create a database named `saga_movies_weekend`
+✅2. Run the queries from `database.sql` on the `saga_movies_weekend` database
 
 ## Install Dependencies
 
-1. `npm install`
-2. `npm run server`
-3. `npm run client`
+✅1. `npm install`
+✅2. `npm run server`
+✅3. `npm run client`
 
 ## Notes
 
 ### Table Relationships
 Genres can be applied to many different movies. Movies can have multiple genres. This is Many-to-Many! Junction Table time!
 
-We've given you the database complete with a junction table and data for `movies_genres`.
+✅We've given you the database complete with a junction table and data for `movies_genres`.
  
 ### Movie Poster Images
 We've added some movie posters in the `public/images` folder, and the database is set up to use them. If you want your own posters, you'll want to add the files there!
@@ -38,7 +38,7 @@ We've added some movie posters in the `public/images` folder, and the database i
 
 ## Feature List
 
-> NOTE: Start by taking inventory of the existing code. Part of the work for setting up sagas has been done for you.
+> ✅NOTE: Start by taking inventory of the existing code. Part of the work for setting up sagas has been done for you.
 
 ### Home / List Page
 
@@ -78,7 +78,7 @@ As one of your last projects, it's possible you will be sharing this with employ
 This should show:
 
 - an input field (for the movie title)
-- an input field (for the movie poster image URL))
+- an input field (for the movie poster image URL)
 - a textarea (for the movie description)
 - a dropdown (for the genres)
 
