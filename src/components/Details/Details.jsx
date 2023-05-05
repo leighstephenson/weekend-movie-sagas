@@ -2,6 +2,7 @@
 import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Typography } from "@mui/material";
+import { useEffect } from "react";
 import axios from "axios";
 import Card from '@mui/material/Card';
 import CardContent from "@mui/material/CardContent";
@@ -13,11 +14,17 @@ function Details() {
     let dispatch = useDispatch();
     let history = useHistory();
     let { id } = useParams();
-    const selectedMovie = useSelector((store) => store.selectedMovie);
+    let selectedMovie = useSelector((store) => store.selectedMovie);
+    let genres = useSelector((store) => store.genres);
 
     //! Back to MovieList
     const goBack = () => { history.push('/') }
 
+    useEffect(() => {
+        dispatch({ type: "FETCH_GENRES", payload: selectedMovie.id });
+    }, []);
+
+    //TODO improve the styling later
     //! What displays
     return (
         <>
@@ -33,6 +40,17 @@ function Details() {
                     </Typography>
 
                     <Typography>
+                        Genre:
+                        <br />
+                        <ul>
+                            {genres.map((genre) => (
+                                <li key={genre.id}> {genre.name} </li>
+                            ))}
+                        </ul>
+
+                    </Typography>
+
+                    <Typography>
 
                         <img src={selectedMovie.poster} />
                         <br />
@@ -42,7 +60,8 @@ function Details() {
                 </CardContent>
             </Card>
 
-            <Button variant="outlined">
+            <Button variant="outlined"
+                onClick={goBack}>
                 Go Back
             </Button>
         </>
