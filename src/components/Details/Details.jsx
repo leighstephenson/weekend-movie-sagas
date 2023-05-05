@@ -2,6 +2,7 @@
 import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Typography } from "@mui/material";
+import axios from "axios";
 import Card from "@mui/material";
 import CardContent from "@mui/material";
 import Button from "@mui/material";
@@ -13,6 +14,10 @@ function Details() {
     let history = useHistory();
     let { id } = useParams();
     
+    const selectedMovie = useSelector((store) => store.selectedMovie);
+
+
+
 
     //! Back to MovieList
     const goBack = () => { history.push('/') }
@@ -21,7 +26,7 @@ function Details() {
     return (
         <>
             <Typography>
-                Details
+                Details for {selectedMovie.title}
             </Typography>
 
         </>
