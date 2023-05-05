@@ -30,38 +30,37 @@ function Details() {
         <>
             <Card variant='outlined' sx={{
                 boxShadow: 10,
-                margin: 10,
+                margin: 5,
 
 
             }}>
                 <CardContent>
-                    <Typography>
+                    <Typography variant="h4">
                         Details for {selectedMovie.title}
                     </Typography>
 
-                    <Typography>
-                        Genre:
-                        <br />
-                        <ul>
-                            {genres.map((genre) => (
-                                <li key={genre.id}> {genre.name} </li>
-                            ))}
-                        </ul>
+                    <br />
 
+                    <Typography>
+                        <img src={selectedMovie.poster} />
+
+                        <br />
+
+                        Genre(s):
+                        {genres.map((genre) => (
+                            <li key={genre.id}> {genre.name} </li>
+                        ))}
                     </Typography>
 
+                    <br />
+
                     <Typography>
-
-                        <img src={selectedMovie.poster} />
-                        <br />
                         {selectedMovie.description}
-
                     </Typography>
                 </CardContent>
             </Card>
 
-            <Button variant="outlined"
-                onClick={goBack}>
+            <Button variant="outlined" onClick={goBack}>
                 Go Back
             </Button>
         </>
