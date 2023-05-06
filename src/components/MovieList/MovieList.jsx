@@ -21,20 +21,28 @@ function MovieList() {
         history.push('/details')
     };
 
+    //TODO the justiftContent: center is not working as expected
     return (
         <main>
-            <h1>MovieList</h1>
+            <h3>Select a movie poster to view more information.</h3>
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        <Grid container>
-                            <Grid item justifyContent='center'>
+                        // <Grid container> 
+                            <Grid  sx={{
+                                margin: 1,
+                                border: 1,
+                                padding: 2,
+                                display: 'inline',
+                                width: 300,
+                                justifyContent: 'center',
+                            }}>
                                 <div key={movie.id} onClick={() => movieSelection(movie)}>
                                     <h3>{movie.title}</h3>
                                     <img src={movie.poster} alt={movie.title} />
                                 </div>
                             </Grid>
-                        </Grid>
+                        // </Grid>
                     );
                 })}
             </section>
