@@ -6,29 +6,32 @@ import './MovieList.css'
 
 function MovieList() {
 
+    //! Our hooks
     const dispatch = useDispatch();
     const history = useHistory();
+
+    //! Stores our movies
     const movies = useSelector(store => store.movies);
 
-
+    //! Fetch the list of movies
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-
+    //! Sets selected movie and brings user to details
     const movieSelection = (movie) => {
         dispatch({ type: 'SET_SELECTED_MOVIE', payload: movie });
         history.push('/details')
     };
 
-    //TODO the justiftContent: center is not working as expected
+    //? the justifyContent: center is not working as expected
+    //! What displays
     return (
         <main>
             <h3>Select a movie poster to view more information.</h3>
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                        // <Grid container> 
                             <Grid  sx={{
                                 margin: 1,
                                 border: 1,
@@ -42,13 +45,12 @@ function MovieList() {
                                     <img src={movie.poster} alt={movie.title} />
                                 </div>
                             </Grid>
-                        // </Grid>
                     );
                 })}
             </section>
         </main>
 
     );
-}
+} // End  of MovieList()
 
 export default MovieList;

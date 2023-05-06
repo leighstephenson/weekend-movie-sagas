@@ -1,30 +1,30 @@
 //TODO imports
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Typography } from "@mui/material";
 import { useEffect } from "react";
-import axios from "axios";
 import Card from '@mui/material/Card';
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material";
 
 function Details() {
 
+    //! Our hooks
     let dispatch = useDispatch();
     let history = useHistory();
-    let { id } = useParams();
+
+    //! Stores which movie the user selected
     let selectedMovie = useSelector((store) => store.selectedMovie);
     let genres = useSelector((store) => store.genres);
 
-    //! Back to MovieList
+    //! Leads back to MovieList
     const goBack = () => { history.push('/') }
 
+    //! Fetches the genre from DB
     useEffect(() => {
         dispatch({ type: "FETCH_GENRES", payload: selectedMovie.id });
     }, []);
 
-    //TODO improve the styling later
     //! What displays
     return (
         <>
@@ -36,15 +36,15 @@ function Details() {
             }}>
                 <CardContent>
                     <Typography variant="h7">
-                        Details for 
+                        Details for
                     </Typography>
 
                     <Typography variant="h3"
-                    sx={{
-                        fontStyle: 'italic'
-                        
-                    }}>
-                       {selectedMovie.title}
+                        sx={{
+                            fontStyle: 'italic'
+
+                        }}>
+                        {selectedMovie.title}
                     </Typography>
 
                     <br />
@@ -69,20 +69,19 @@ function Details() {
             </Card>
 
             <Button variant="outlined" onClick={goBack}
-            sx={{
-                margin: 3,
-                color: 'black',
-                borderColor: 'black',
-                backgroundColor: 'lightGrey',
-                ':hover': {
-                    bgcolor: 'salmon',
-                },
-                
-            }}>
+                sx={{
+                    margin: 3,
+                    color: 'black',
+                    borderColor: 'black',
+                    backgroundColor: 'lightGrey',
+                    ':hover': {
+                        bgcolor: 'salmon',
+                    },
+
+                }}>
                 Go Back
             </Button>
 
-            <br />
         </>
     );
 
