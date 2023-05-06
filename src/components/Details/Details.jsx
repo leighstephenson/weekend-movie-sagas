@@ -35,8 +35,16 @@ function Details() {
 
             }}>
                 <CardContent>
-                    <Typography variant="h4">
-                        Details for {selectedMovie.title}
+                    <Typography variant="h7">
+                        Details for 
+                    </Typography>
+
+                    <Typography variant="h3"
+                    sx={{
+                        fontStyle: 'italic'
+                        
+                    }}>
+                       {selectedMovie.title}
                     </Typography>
 
                     <br />
@@ -60,9 +68,21 @@ function Details() {
                 </CardContent>
             </Card>
 
-            <Button variant="outlined" onClick={goBack}>
+            <Button variant="outlined" onClick={goBack}
+            sx={{
+                margin: 3,
+                color: 'black',
+                borderColor: 'black',
+                backgroundColor: 'lightGrey',
+                ':hover': {
+                    bgcolor: 'salmon',
+                },
+                
+            }}>
                 Go Back
             </Button>
+
+            <br />
         </>
     );
 
