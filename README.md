@@ -7,9 +7,9 @@ Weekend Movie Sagas
 This web application displays a collection of movies. Users can select a poster to view a description and the genre(s) of the movie. 
 
 ## Preview
-
-<!-- TODO add screenshots here -->
-
+![List of movies](./public/images/list-of-movies.png) 
+![Details page](./public/images/details-page.png) 
+![Back button](./public/images/back-button.png) 
 ## Duration
 
 A few days of work over 1 week.
