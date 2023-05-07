@@ -32,7 +32,7 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => {
                     return (
-                            <Grid  sx={{
+                            <Grid key={movie.id} sx={{
                                 margin: 1,
                                 border: 1,
                                 padding: 2,
@@ -40,7 +40,8 @@ function MovieList() {
                                 width: 300,
                                 justifyContent: 'center',
                             }}>
-                                <div key={movie.id} onClick={() => movieSelection(movie)}>
+                                
+                                <div  onClick={() => movieSelection(movie)}>
                                     <h3>{movie.title}</h3>
                                     <img src={movie.poster} alt={movie.title} />
                                 </div>
